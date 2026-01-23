@@ -54,16 +54,20 @@ self.addEventListener('fetch', (event) => {
         console.log('[Service Worker] Fetching from network:', event.request.url);
         return fetch(event.request).then((response) => {
           // Don't cache if not a success response
-          if (!response || response.status !== 200 || response.type === 'error') {
+          if (!response || response.status !== 200 || !response.ok) {
             return response;
           }
           
           // Clone response as it can only be consumed once
           const responseToCache = response.clone();
           
-          // Cache the new resource
+          // Cache the new resource with error handling
           caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
+            cache.put(event.request, responseToCache).catch((err) => {
+              console.error('[Service Worker] Cache put failed:', err);
+            });
+          }).catch((err) => {
+            console.error('[Service Worker] Cache open failed:', err);
           });
           
           return response;
