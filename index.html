@@ -19,11 +19,19 @@
 				if(document.location.href.startsWith("file:")) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
 				}else {
+					// Eaglercraft configuration - supports both singleplayer and multiplayer
 					window.eaglercraftXOpts = {
+						// Game container
 						container: "game_frame",
-						assetsURI: "assets.epk",
-						localesURI: "lang/",
-						worldsDB: "worlds/",
+						
+						// Shared resources (used by both singleplayer and multiplayer)
+						assetsURI: "assets.epk",        // Game assets (textures, sounds, etc.)
+						localesURI: "lang/",            // Language/localization files
+						
+						// Singleplayer configuration
+						worldsDB: "worlds/",            // IndexedDB namespace for singleplayer worlds
+						
+						// Multiplayer configuration
 						servers: [
 							{ addr: "wss://mc.sealcentral.co", name: "1.8-1.20.4 ArchMC" },
 							{ addr: "wss://", name: "Server not found! Error Code 134: Server Error" },
