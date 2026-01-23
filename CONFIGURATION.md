@@ -13,6 +13,10 @@ window.eaglercraftXOpts = {
     localesURI: "lang/",           // Shared language files
     worldsDB: "worlds/",           // Singleplayer world storage
     servers: [...]                 // Multiplayer server list
+    
+    // Performance settings
+    fboEnable: true,               // Hardware acceleration
+    renderDistance: 4,             // View distance (2-16 chunks)
 };
 ```
 
@@ -36,6 +40,13 @@ window.eaglercraftXOpts = {
 - **assetsURI**: Game assets (textures, models, sounds)
 - **localesURI**: Language/translation files
 - Both modes use the same assets but maintain separate game states
+
+### Performance Settings
+- **fboEnable**: `true` - Enables framebuffer objects for hardware acceleration
+- **renderDistance**: `4` - Default render distance in chunks
+  - Lower values (2-4) = better FPS for low-end devices
+  - Higher values (8-16) = better view distance but lower FPS
+  - User can adjust in-game via Video Settings
 
 ## How Separation is Maintained
 

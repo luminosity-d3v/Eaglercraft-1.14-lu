@@ -9,6 +9,11 @@ Play Minecraft 1.14.4 directly in your browser with full singleplayer support!
 - 🌍 Connect to 1.14.4 multiplayer servers via WebSocket
 - 💾 Worlds saved locally in browser storage (IndexedDB)
 - 🚀 Hosted on GitHub Pages for easy access
+- ⚡ Performance optimized for better FPS and reduced lag
+  - Hardware-accelerated rendering (FBO)
+  - Optimized render distance (4 chunks default)
+  - Resource preloading for faster startup
+  - Service Worker caching for instant subsequent loads
 
 ## Deployment Instructions
 
@@ -62,8 +67,13 @@ The game properly separates singleplayer and multiplayer functionality:
 
 - **Game won't load**: Try clearing browser cache and reloading
 - **Blank screen**: Ensure you're accessing via HTTPS (required for GitHub Pages)
-- **Slow loading**: First load downloads ~20MB of assets, subsequent loads are faster
+- **Slow loading**: First load downloads ~20MB of assets, subsequent loads are faster (cached by Service Worker)
 - **Worlds not saving**: Check that your browser allows IndexedDB storage
+- **Low FPS/Lag**: See [PERFORMANCE.md](PERFORMANCE.md) for optimization guide
+  - Lower render distance in Video Settings (Options > Video Settings)
+  - Set Graphics to "Fast" for better FPS
+  - Disable Entity Shadows, Clouds, and Particles
+  - Close other browser tabs and applications
 
 ## Credits
 

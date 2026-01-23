@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,10 +11,27 @@
 		<meta property="og:title" content="EaglercraftW 1.14.4" />
 		<meta property="og:description" content="Play minecraft 1.14.4 in your browser" />
 		<meta property="og:image" content="favicon.png" />
+		
+		<!-- Performance optimizations -->
+		<link rel="preload" href="classes.js" as="script" />
+		<link rel="preload" href="fix-webm-duration.js" as="script" />
+		<link rel="preload" href="assets.epk" as="fetch" crossorigin="anonymous" />
+		<link rel="dns-prefetch" href="//mc.sealcentral.co" />
+		<link rel="dns-prefetch" href="//play.craftclue.rocks" />
+		
 		<link type="image/png" rel="shortcut icon" href="favicon.png" />
 		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript" src="fix-webm-duration.js"></script>
 		<script type="text/javascript">
+			// Register service worker for caching and performance
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/service-worker.js')
+						.then(registration => console.log('[ServiceWorker] Registered'))
+						.catch(err => console.log('[ServiceWorker] Registration failed:', err));
+				});
+			}
+			
 			window.addEventListener("load", () => {
 				if(document.location.href.startsWith("file:")) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
@@ -36,7 +53,15 @@
 							{ addr: "wss://mc.sealcentral.co", name: "1.8-1.20.4 ArchMC" },
 							{ addr: "wss://", name: "Server not found! Error Code 134: Server Error" },
 							{ addr: "wss://play.craftclue.rocks", name: "CraftClue"}
-						]
+						],
+						
+						// Performance optimizations for better FPS and reduced lag
+						fboEnable: true,                // Enable framebuffer objects (better performance)
+						renderDistance: 4,              // Default render distance (4-16 chunks, lower = better FPS)
+						
+						// Optional: Uncomment these for even better performance on slower devices
+						// enableWebViewCSP: false,     // Disable CSP for better compatibility
+						// enableMinceraftAuth: false,  // Disable auth for faster loading
 					};
 					main();
 				}
