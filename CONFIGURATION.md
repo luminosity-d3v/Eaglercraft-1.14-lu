@@ -33,6 +33,7 @@ window.eaglercraftXOpts = {
 - **servers**: Array of server objects
   - Each server has `addr` (WebSocket URL) and `name` (display name)
   - Connects to remote servers via WebSocket protocol
+  - Supports both native Eaglercraft servers and Java servers exposed through an Eagler-compatible proxy endpoint
   - Server data is fetched from remote, not stored locally
   - Does NOT access singleplayer world storage
 

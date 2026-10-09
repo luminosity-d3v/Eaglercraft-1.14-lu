@@ -49,6 +49,7 @@ Play Minecraft 1.14.4 directly in your browser with full singleplayer support!
 - Click "Multiplayer" to connect to compatible servers
 - Pre-configured servers are listed in the server list
 - You can also add custom 1.14.4 servers that support EaglercraftX protocol
+- Java servers are supported when they expose an Eagler-compatible WebSocket endpoint (for example through EaglerProxy)
 - **Note**: Multiplayer connections are independent of singleplayer worlds
 
 ### Mode Separation
