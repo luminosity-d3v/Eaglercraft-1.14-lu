@@ -9,6 +9,7 @@ Play Minecraft 1.14.4 directly in your browser with full singleplayer support!
 - 🌍 Connect to 1.14.4 multiplayer servers via WebSocket
 - 💾 Worlds saved locally in browser storage (IndexedDB)
 - 🚀 Hosted on GitHub Pages for easy access
+- 🧪 Update kickoff: singleplayer UX refresh, off-hand keybind exposure, and profile cape menu updates
 - ⚡ Performance optimized for better FPS and reduced lag
   - Hardware-accelerated rendering (FBO)
   - Optimized render distance (4 chunks default)
