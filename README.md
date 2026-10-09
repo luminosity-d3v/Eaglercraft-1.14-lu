@@ -36,6 +36,7 @@ Play Minecraft 1.14.4 directly in your browser with full singleplayer support!
 - The game may take 15-30 seconds to load initially (it's a large client)
 - You might need to reload the page if it doesn't start immediately
 - Click multiple times on the "press anywhere" screen if it appears
+- Browsers may still require one user interaction before audio can start
 - Wait for assets to load completely
 
 ### Singleplayer Mode
